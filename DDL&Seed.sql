@@ -1,5 +1,7 @@
 CREATE DATABASE IF NOT EXISTS mini;
 
+use mini;
+
 create table role (
 	id int unsigned auto_increment primary key,
 	role_name varchar(32)
@@ -7,7 +9,7 @@ create table role (
 
 create table actors (
 	id bigint unsigned auto_increment primary key,
-	username varchar(32) not null,
+	username varchar(32) not null unique,
 	password varchar(255) not null,
 	role_id int unsigned not null,
 	verified enum('true', 'false') default 'false',
@@ -21,7 +23,7 @@ create table customer (
 	id bigint unsigned auto_increment primary key,
 	first_name varchar(32) not null,
 	last_name varchar(32) not null,
-	email varchar(32) not null,
+	email varchar(32) not null unique,
 	avatar varchar(255) not null,
 	created_at datetime default now(),
 	update_at datetime default now() on update now()
