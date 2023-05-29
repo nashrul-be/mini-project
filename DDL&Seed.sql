@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS mini;
+
 create table role (
 	id int unsigned auto_increment primary key,
 	role_name varchar(32)
