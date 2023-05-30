@@ -31,7 +31,7 @@ create table customer (
 
 create table register_approval (
 	id bigint unsigned auto_increment primary key,
-	admin_id bigint unsigned not null,
+	admin_id bigint unsigned not null unique,
 	super_admin_id bigint unsigned not null,
 	status varchar(32) not null,
 	foreign key (admin_id) references actors(id),
