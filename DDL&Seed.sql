@@ -49,6 +49,8 @@ values ('admin');
 insert into actors (username, password, role_id)
 values ('su_admin', 'su_admin', @super_admin_id);
 
-CREATE USER 'su_admin'@'0.0.0.0' IDENTIFIED BY 'su_admin';
 
-GRANT ALL PRIVILEGES ON mini.* TO 'su_admin'@'0.0.0.0';
+-- change 0.0.0.0 to localhost (0.0.0.0 is invalid ip on windows)
+CREATE USER 'su_admin'@'localhost' IDENTIFIED BY 'su_admin';
+
+GRANT ALL PRIVILEGES ON mini.* TO 'su_admin'@'localhost';
